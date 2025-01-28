@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: sans-serif;
+    background-color: #e7d7ab8c;
+}
+/*
+header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 15vh;
+    padding: 20px;
+    background-color: cornflowerblue;
+}
+*/
+header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 15vh;
+    padding: 20px;
+    background-color: cornflowerblue;
+    min-width: 100vh;
+}
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 85vh;
+    background-color: #f3eddc8c;
+    min-width: 100vh;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+#logoadib {
+    width: 15vh;
+    height: auto;
+}
+
+#saioaitxi {
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #3865b9f1;
+    color: #111;
+    font-weight: bolder;
+    width: 100px;
+    margin-right: 50px;
+    
+    box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
+}
+
+/*
+#saioaitxi {
+    margin-right: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: yellow;
+    border-width: 3px;
+    background-color: crimson;
+    color: #ffffff;
+    font-weight: bold;
+    width: 100px;
+}*/

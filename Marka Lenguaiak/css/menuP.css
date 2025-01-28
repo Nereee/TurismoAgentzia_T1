@@ -1,0 +1,172 @@
+#bidaiak,
+#zerbitzuak {
+    /*background-color: #f5deb3; /* Fondo blanco para el formulario */
+    padding-top: 20px;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra elegante */
+    width: 45vh;
+    /* Ancho del formulario */
+    text-align: center;
+    /* Centrar contenido dentro del formulario */
+    margin: 20px;
+    height: 70vh;
+}
+
+footer p {
+    display: flex;
+    color: white;
+}
+
+
+#saioaitxi {
+    padding: 10px;
+    background-color: #3865b9f1;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #3865b9f1;
+    color: #ffffff;
+    font-weight: bold;
+    width: 100px;
+    margin-right: 50px;
+}
+
+#zerbitzuaErregistratu,
+#bidaiaErregistratu {
+    padding: 10px;
+    background-color: transparent;
+    border-color: transparent;
+    /*background-color: #b0f1a3;*/
+    border-radius: 10px;
+    border-width: 1px;
+    color: #072ba1;
+    font-size: 18px;
+    font-weight: bolder;
+    width: 100%;
+}
+
+
+/*-----------------------------------*/
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    /* Ancho del carrusel */
+    height: 250px;
+    /* Altura del carrusel */
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-container {
+    margin-top: 20px;
+    position: relative;
+}
+
+.carousel {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+
+
+
+
+@media screen and (max-width: 350px) {
+    section {
+        min-height: 145vh;
+        display: inline;
+        background-color: #f3eddc8c;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #bidaiak,
+    #zerbitzuak {
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+        width: 35vh;
+        text-align: center;
+        margin: 5px;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    section {
+        min-height: 145vh;
+        display: inline;
+        background-color: #f3eddc8c;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #bidaiak,
+    #zerbitzuak {
+        /*background-color: #f5deb3; /* Fondo blanco para el formulario */
+        padding-top: 20px;
+        border-radius: 10px;
+        /* Bordes redondeados */
+        box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+        /* Sombra elegante */
+        width: 42vh;
+        /* Ancho del formulario */
+        text-align: center;
+        /* Centrar contenido dentro del formulario */
+        margin: 20px;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section {
+        min-height: 145vh;
+        display: inline;
+        background-color: #f3eddc8c;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #bidaiak,
+    #zerbitzuak {
+        /*background-color: #f5deb3; /* Fondo blanco para el formulario */
+        padding-top: 20px;
+        border-radius: 10px;
+        /* Bordes redondeados */
+        box-shadow: 0 12px 15px rgba(0, 0, 0, 0.3);
+        /* Sombra elegante */
+        width: 40vh;
+        /* Ancho del formulario */
+        text-align: center;
+        /* Centrar contenido dentro del formulario */
+        margin: 20px;
+        height: 60vh;
+    }
+}
