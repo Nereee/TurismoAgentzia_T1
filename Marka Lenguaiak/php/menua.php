@@ -1,11 +1,11 @@
 <?php
 session_start();
-require 'conexion.php';
+require 'conexioa.php';
 
 $nombre = htmlspecialchars(trim($_POST['erabiltzailea']));
 $pasahitza = htmlspecialchars(trim($_POST['pasahitza']));
 
-$sql = "SELECT * FROM usuarios WHERE nombre = ?";
+$sql = "SELECT erabiltzailea, pasahitza FROM agentzia WHERE erabiltzailea = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $nombre);
 $stmt->execute();
@@ -14,9 +14,9 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 
-    if ((string)$pasahitza === (string)$user['contraseña']) {
+    if ((string)$pasahitza === (string)$user['pasahitza']) {
         session_regenerate_id(true);
-        $_SESSION['nombre'] === $user['nombre'];
+        $_SESSION['erabiltzailea'] === $user['erabiltzailea'];
         header("Location: ../html/menuPrintzipala.html");
         exit();
     } else {
