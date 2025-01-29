@@ -1,3 +1,8 @@
+<?php
+session_start();
+require 'conexioa.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +16,13 @@
     <header>
         <!--<img src="../img/logoadib.jpg" alt="logoadib" id="logoadib">-->
         <input type="submit" id="saioaitxi" value="Itxi saioa">
+        <?php
+        echo $_SESSION['agentzia'];
+        ?>
     </header>
     <section>
-        <input type="button" id="bidaiaErregistratu" value="BIDAIAK ERREGISTRATU" onclick="location.href= '../php/bidaiakErregistratu.php'">
-        <input type="button" id="zerbitzuaErregistratu" value="ZERBITZUAK ERREGISTRATU" onclick="location.href= '../php/zerbitzuakErregistratu.php'">
+        <input type="button" id="bidaiaErregistratu" value="BIDAIAK ERREGISTRATU" onclick="location.href= 'bidaiakErregistratu.php'">
+        <input type="button" id="zerbitzuaErregistratu" value="ZERBITZUAK ERREGISTRATU" onclick="location.href= 'zerbitzuakErregistratu.php'">
     </section>
 </body>
 </html>

@@ -24,8 +24,6 @@
         border-width: 1px;
     }
 
-    
-
     .select-css {
         font-size: 14px;
         font-weight: 400;
@@ -37,20 +35,6 @@
         border-radius: 5px;
        }
 
-
-
-    form textarea{
-        margin-top: 10px;
-        margin-left: 20px;
-        margin-bottom: 20px;
-        width: 90%;
-        max-width: 90%;
-        min-width: 90%;
-        padding: 8px;
-        border-radius: 5px;
-        border-width: 1px;
-        height: 120px; 
-    }
 
     form input[type="submit"]{
             padding: 10px;
@@ -66,26 +50,30 @@
             box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
     }
 
-
-    th{
-        padding: 5px;
-        border-style: solid;
-        background-color: lightgray;
-        width: 140px;
-        border-width: 3px;
-    }
-
-    table{
-        box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
-    }
-    
-    table, td{
-        font-size: small;
-        margin: auto;
-        padding: 5px;
-        border-style: solid;
+    form textarea{
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        width: 90%;
+        max-width: 90%;
+        min-width: 90%;
+        padding: 8px;
+        border-radius: 5px;
         border-width: 1px;
-        background-color: rgb(234, 234, 234);
+        height: 120px; 
+    }
+
+    input[type="radio"]{
+        width: 5%;
+    }
+
+    .zerbitzutitulua{
+        color: cornflowerblue;
+        font-size: 23px;
+    }
+
+    .hegmotatitulua{
+        color: cornflowerblue;
     }
 
     section{

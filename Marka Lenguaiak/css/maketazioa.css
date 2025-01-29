@@ -24,7 +24,7 @@ header {
 */
 header {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     min-height: 15vh;

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require 'conexioa.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,21 +11,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidaiak Erregistratu</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
-    <link rel="stylesheet" href="../css/bidaiakEr.css">
+    <link rel="stylesheet" href="../css/bidaiakErregistratu.css">
 </head>
 
 <body>
     <header>
         <!--<img src="../img/logoadib.jpg" alt="logoadib" id="logoadib">-->
         <input type="submit" id="saioaitxi" value="Itxi saioa">
+    <?php
+    echo $_SESSION['agentzia'];
+    ?>
     </header>
     <section>
-      <!--action="php/bidaiakErregistratu.php"-->
-      <form action="#" method="get" id="bidaiErregistroa">
+      <!--action="bidaiaInsert.php" method=POST-->
+      <form action="" method="get" id="bidaiErregistroa">
         <label for="izena">Izena:</label><br>
         <input type="text" id="izena" name="izena"><br><br>
             
-        <label for="bidaiMota">Bidaia mota:</label><br> <!-- Datu basetik atera -->
+        <label>Bidaia mota:</label><br> <!-- Datu basetik atera -->
 
         <div>
           <select name="bidaiamota" class="select-css">
@@ -43,25 +51,25 @@
                   echo "<option value='$kodea'>$deskribapena</option>";
                 }
               } else {
-                  echo "<option value=''>No hay usuarios disponibles</option>";
+                  echo "<option value=''>Ez daude bidaiarik</option>";
               }
             ?>
           </select>
         </div>
         <br><br>
             
-        <label for="hasidata">Hasiera Data:</label><br>
-        <input type="date" id="hasidata"><br><br>
+        <label>Hasiera Data:</label><br>
+        <input type="date" id="hasieradata"><br><br>
             
-        <label for="amaidata">Amaiera Data:</label><br>
-        <input type="date" id="amaidata"><br><br>
+        <label>Amaiera Data:</label><br>
+        <input type="date" id="amaieradata"><br><br>
             
-        <label for="egunak">Egunak:</label><br> <!-- if (zbk < 1){alerta} -->
+        <label>Egunak:</label><br> <!-- if (zbk < 1){alerta} -->
         <input type="number" id="egunak"><br><br>
             
-        <label for="herrialdea">Herrialdea:</label><br> <!-- Datu basetik atera -->
+        <label>Herrialdea:</label><br> <!-- Datu basetik atera -->
         <div>
-          <select name="bidaiamota" class="select-css">
+          <select name="herrialdea" class="select-css">
             <option value="">--Aukeratu--</option>
             <?php
               // Incluir el archivo de conexión
@@ -88,11 +96,14 @@
         </div>
         <br><br>
             
-        <label for="desc">Deskribapena:</label><br>
-        <textarea name="desc" id="desc"></textarea><br><br>
+        <label>Deskribapena:</label><br>
+        <textarea name="desc" id="deskribapena"></textarea>
+        <br><br>
             
-        <label for="desc">Kanpoan geratzen diren zerbitzuak:</label><br>
-        <textarea name="kanpZerb" id="kanpZerb"></textarea><br><br>
+        <label>Kanpoan geratzen diren zerbitzuak:</label>
+        <br>
+        <textarea name="kanpZerb" id="kanpZerb"></textarea>
+        <br><br>
         <input type="submit" id="bidaiagorde" value="GORDE">
       </form>
       <br><br>
@@ -104,23 +115,15 @@
             <th>HASIERA DATA</th>
             <th>AMAIERA DATA</th>
             <th>EGUNAK</th>
-            <th>HERRIALDEAK</th>
+            <th>HERRIALDEA</th>
             <th>DESKRIBAPENA</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1,1 Gelaxka</td>
-            <td>1,2 Gelaxka</td>
-            <td>1,3 Gelaxka</td>
-            <td>1,3 Gelaxka</td>
-            <td>1,3 Gelaxka</td>
-            <td>1,3 Gelaxka</td>
-            <td>1,3 Gelaxka</td>
-          </tr>
+              
         </tbody>
       </table>
     </section>
 </body>
-<script src="/js/bidaiakErregistratu.js"></script>
+<script src="../js/bidaiakErregistratu.js"></script>
 </html>
