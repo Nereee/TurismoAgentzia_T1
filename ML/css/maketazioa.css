@@ -11,7 +11,7 @@ body {
     font-family: sans-serif;
     background-color: #e7d7ab8c;
 }
-
+/*
 header {
     display: flex;
     justify-content: start;
@@ -22,6 +22,7 @@ header {
     background-color: cornflowerblue;
     min-width: 100vh;
 }
+*/
 section {
     display: flex;
     justify-content: center;

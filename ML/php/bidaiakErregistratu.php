@@ -11,6 +11,7 @@ require 'conexioa.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidaiak Erregistratu</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
+    <link rel="stylesheet" href="../php/kolorea.php">
     <link rel="stylesheet" href="../css/bidaiakErregistratu.css">
     <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>

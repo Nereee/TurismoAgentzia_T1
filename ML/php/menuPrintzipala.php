@@ -11,6 +11,7 @@ require 'conexioa.php';
     <title>Menu Printzipala</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
     <link rel="stylesheet" href="../css/menuPrintzipala.css">
+    <link rel="stylesheet" href="../php/kolorea.php">
     <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>
 <body>

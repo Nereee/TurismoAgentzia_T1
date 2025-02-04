@@ -11,6 +11,7 @@ require 'conexioa.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bidaiak Erregistratu</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
+    <link rel="stylesheet" href="../php/kolorea.php">
     <link rel="stylesheet" href="../css/zerbitzuakErregistratu.css">
     <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>
@@ -27,7 +28,7 @@ require 'conexioa.php';
     </header>
     <section>
       <!--action="php/bidaiakErregistratu.php"-->
-      <form action="InsertZerbitzua.php" method="POST" id="zerbitzuErregistroa">  
+      <form action="zerbitzuaInsert.php" method="POST" id="zerbitzuErregistroa">  
         <label for="bidaia">Aukeratu bidaia</label><br> <!-- Datu basetik atera -->
         <div>
           <select id="bidaia" name="bidaia" class="select-css">
@@ -145,7 +146,7 @@ require 'conexioa.php';
           </div>
           <br><br>
           <label>Hegaldi Kodea</label>
-          <input type="text" id="joanekokodea">
+          <input type="text" id="joanekokodea" name="joanekokodea">
           <br><br>
           <label>Airelinea</label>
           <div>
@@ -176,16 +177,16 @@ require 'conexioa.php';
           </div>
           <br><br>
           <label id="preziolabel">Prezioa (€)</label>
-          <input type="text" id="joanekoprezioa">
+          <input type="text" id="joanekoprezioa" name="joanekoprezioa">
           <br><br>
           <label>Irteera Data</label>
-          <input type="date" id="joanekodata">
+          <input type="date" id="joanekodata" name="joanekodata">
           <br><br>
           <label>Irteera Ordua</label>
-          <input type="time" id="joanekoordua">
+          <input type="time" id="joanekoordua" name="joanekoordua">
           <br><br>
           <label>Bidaiaren Iraupena (orduetan)</label>
-          <input type="time" id="joanekoiraupena">
+          <input type="time" id="joanekoiraupena" name="joanekoiraupena">
           
           
 
@@ -194,7 +195,7 @@ require 'conexioa.php';
             <label class="hegmotatitulua">Etorriko hegaldia</label>
             <br><br>
             <label>Bueltako Hegaldi Kodea</label>
-            <input type="text" id="etorrikokodea">
+            <input type="text" id="etorrikokodea" name="etorrikokodea">
             <br><br>
             <label>Bueltako Airelinea</label>
             <div>
@@ -225,13 +226,13 @@ require 'conexioa.php';
             </div>
             <br><br>
             <label>Itzulera Data</label>
-            <input type="date" id="etorrikodata">
+            <input type="date" id="etorrikodata" name="etorrikodata">
             <br><br>
             <label>Itzulera Ordua</label>
-            <input type="time" id="etorrikoordua">
+            <input type="time" id="etorrikoordua" name="etorrikoordua">
             <br><br>
             <label>Bueltako Bidaiaren Iraupena (orduetan)</label>
-            <input type="time" id="etorrikoiraupena">
+            <input type="time" id="etorrikoiraupena" name="etorrikoiraupena">
             <br><br>
           </div>
         </div>
@@ -241,19 +242,19 @@ require 'conexioa.php';
           <label class="zerbitzutitulua">Ostatua</label>
           <br><br>
           <label>Hotelaren izena</label>
-          <input type="text" id="ostatuizena">
+          <input type="text" id="ostatuizena" name="ostatuizena">
           <br><br>
           <label>Hiria</label>
-          <input type="text" id="ostatuhiria">
+          <input type="text" id="ostatuhiria" name="ostatuhiria">
           <br><br>
           <label>Prezioa (€)</label>
-          <input type="number" id="ostatuprezioa">
+          <input type="text" id="ostatuprezioa" name="ostatuprezioa">
           <br><br>
           <label>Sarrera eguna</label>
-          <input type="date" id="ostatusarreraeguna">
+          <input type="date" id="ostatusarreraeguna" name="ostatusarreraeguna">
           <br><br>
           <label>Irteera eguna</label>
-          <input type="date" id="ostatuirteeraeguna">
+          <input type="date" id="ostatuirteeraeguna" name="ostatuirteeraeguna">
           <br><br>
           <label>Logela mota</label>
           <div>
@@ -289,16 +290,16 @@ require 'conexioa.php';
           <label class="zerbitzutitulua">Beste Batzuk</label>
           <br><br>
           <label>Izena</label>
-          <input type="text" id="bestebatzukizena">
+          <input type="text" id="bestebatzukizena" name="bestebatzukizena">
           <br><br>
           <label>Data</label>
-          <input type="date" id="bestebatzukdata">
+          <input type="date" id="bestebatzukdata" name="bestebatzukdata">
           <br><br>
           <label>Deskribapena</label>
           <textarea name="bestebatzukdeskribapena" id="bestebatzukdeskribapena"></textarea>
           <br><br>
           <label>Prezioa (€)</label>
-          <input type="number" id="bestebatzukprezioa">
+          <input type="text" id="bestebatzukprezioa" name="bestebatzukprezioa">
         </div>
 
         <br><br>

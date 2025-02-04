@@ -32,17 +32,18 @@ document.querySelectorAll('input[name="zeinzerbitzu"]').forEach(radio => {
 document.querySelectorAll('input[name="hegaldimota"]').forEach(radio => {
     radio.addEventListener('change', function () {
 
-        if(this.id === 'joanetorrikoa') {
-            document.getElementById('etorrikoErregistroa').style.display = 'block';
-            document.getElementById('joanekoErregistroa').style.display = 'block';
-            document.getElementById('zerbitzuagorde').style.display = 'block';
-            document.getElementById('preziolabel').innerHTML = 'Prezio Totala (€)'
-        }
         if(this.id === 'joanekoa'){
             document.getElementById('joanekoErregistroa').style.display = 'block';
             document.getElementById('etorrikoErregistroa').style.display = 'none';
             document.getElementById('zerbitzuagorde').style.display = 'block';
             document.getElementById('preziolabel').innerHTML = 'Prezioa (€)'
+            
+        }
+        if(this.id === 'joanetorrikoa') {
+            document.getElementById('etorrikoErregistroa').style.display = 'block';
+            document.getElementById('joanekoErregistroa').style.display = 'block';
+            document.getElementById('zerbitzuagorde').style.display = 'block';
+            document.getElementById('preziolabel').innerHTML = 'Prezio Totala (€)'
         }
     });
 });
