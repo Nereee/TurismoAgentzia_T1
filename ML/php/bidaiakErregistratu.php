@@ -12,26 +12,28 @@ require 'conexioa.php';
     <title>Bidaiak Erregistratu</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
     <link rel="stylesheet" href="../css/bidaiakErregistratu.css">
+    <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>
 
 <body>
     <header>
         <!--<img src="../img/logoadib.jpg" alt="logoadib" id="logoadib">-->
+        <input type="submit" class="atzera" id="atzerabid" value=''>
+        <img id="sessionLogoa" src="<?php if(isset($_SESSION['agentziaLogoa'])){
+            echo htmlspecialchars($_SESSION['agentziaLogoa']); }?>" alt="Logoa">
+        <div id="sessionIzena"><?php if(isset($_SESSION['agentziaIzena'])){
+            echo htmlspecialchars($_SESSION['agentziaIzena']); }?></div>
         <input type="submit" id="saioaitxi" value="Itxi saioa">
-    <?php
-    echo $_SESSION['agentzia'];
-    ?>
     </header>
     <section>
       <!--action="bidaiaInsert.php" method=POST-->
-      <form action="" method="get" id="bidaiErregistroa">
+      <form action="bidaiaInsert.php" method="POST" id="bidaiErregistroa">
         <label for="izena">Izena:</label><br>
         <input type="text" id="izena" name="izena"><br><br>
             
         <label>Bidaia mota:</label><br> <!-- Datu basetik atera -->
-
         <div>
-          <select name="bidaiamota" class="select-css">
+          <select name="bidaiamota" id="bidaiamota" class="select-css">
             <option value="">--Aukeratu--</option>
             <?php
               // Incluir el archivo de conexión
@@ -59,17 +61,18 @@ require 'conexioa.php';
         <br><br>
             
         <label>Hasiera Data:</label><br>
-        <input type="date" id="hasieradata"><br><br>
+        <input type="date" name="hasieradata" id="hasieradata"><br><br>
             
         <label>Amaiera Data:</label><br>
-        <input type="date" id="amaieradata"><br><br>
+        <input type="date" name="amaieradata" id="amaieradata"><br><br>
             
         <label>Egunak:</label><br> <!-- if (zbk < 1){alerta} -->
-        <input type="number" id="egunak"><br><br>
+        <input type="text" name="egunak" id="egunak" disabled><br><br>
+        
             
         <label>Herrialdea:</label><br> <!-- Datu basetik atera -->
         <div>
-          <select name="herrialdea" class="select-css">
+          <select name="herrialdea" id="herrialdea" class="select-css">
             <option value="">--Aukeratu--</option>
             <?php
               // Incluir el archivo de conexión
@@ -97,7 +100,7 @@ require 'conexioa.php';
         <br><br>
             
         <label>Deskribapena:</label><br>
-        <textarea name="desc" id="deskribapena"></textarea>
+        <textarea name="deskribapena" id="deskribapena"></textarea>
         <br><br>
             
         <label>Kanpoan geratzen diren zerbitzuak:</label>
@@ -123,7 +126,18 @@ require 'conexioa.php';
               
         </tbody>
       </table>
+
+      <div class="overlay" id="overlay" style='display:none'>
+            <div class="popup" id="popup">
+                <br><br>
+                <label id="itxi"><b>Saioa itxi nahi duzu?</b></label>
+                <br>
+                <input type="submit" id="saioaitxipopup" value="Saioa Itxi">
+                <input type="submit" id="ezitxi" value="Oraindik ez">
+            </div>
+        </div>
     </section>
 </body>
 <script src="../js/bidaiakErregistratu.js"></script>
+<script src="../js/saioaitxi.js"></script>
 </html>

@@ -12,30 +12,34 @@ require 'conexioa.php';
     <title>Bidaiak Erregistratu</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
     <link rel="stylesheet" href="../css/zerbitzuakErregistratu.css">
+    <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>
 
 <body>
     <header>
         <!--<img src="../img/logoadib.jpg" alt="logoadib" id="logoadib">-->
+        <input type="submit" class="atzera" id="atzerazerb" value=''>
+        <img id="sessionLogoa" src="<?php if(isset($_SESSION['agentziaLogoa'])){
+            echo htmlspecialchars($_SESSION['agentziaLogoa']); }?>" alt="Logoa">
+        <div id="sessionIzena"><?php if(isset($_SESSION['agentziaIzena'])){
+            echo htmlspecialchars($_SESSION['agentziaIzena']); }?></div>
         <input type="submit" id="saioaitxi" value="Itxi saioa">
-        <?php
-        echo $_SESSION['agentzia'];
-        ?>
     </header>
     <section>
       <!--action="php/bidaiakErregistratu.php"-->
-      <form action="#" method="get" id="bidaiErregistroa">  
+      <form action="InsertZerbitzua.php" method="POST" id="zerbitzuErregistroa">  
         <label for="bidaia">Aukeratu bidaia</label><br> <!-- Datu basetik atera -->
-
         <div>
-          <select name="bidaia" class="select-css">
+          <select id="bidaia" name="bidaia" class="select-css">
             <option value="">--Aukeratu--</option>
             <?php
               // Incluir el archivo de conexión
               require 'conexioa.php';
-                    
+              
+              //$id_agentzia = $_SESSION['id_agentzia'];
+              
               // Consulta para obtener todos los usuarios
-              $getBidaia = "SELECT id_bidaia, izena, deskribapena FROM bidaiak";
+              $getBidaia = "SELECT id_bidaia, izena, deskribapena, agentzia_kodea FROM bidaiak WHERE agentzia_kodea = '" . $_SESSION['id_agentzia'] . "'";
               $result = $conn->query($getBidaia);
                     
               // Verificar si hay resultados
@@ -67,7 +71,7 @@ require 'conexioa.php';
 
         <hr>
 
-        <div id="joanekoErregistroa" style='display:none'>
+        <div id="hegaldimota" style='display:none'>
           <br><br>
           <label class="zerbitzutitulua">Hegaldia</label>
           <br><br>
@@ -76,14 +80,16 @@ require 'conexioa.php';
           <label><input type="radio" name="hegaldimota" id="joanekoa" value="joanekoa"> Joaneko hegaldia</label>
           <br>
           <label><input type="radio" name="hegaldimota" id="joanetorrikoa" value="joanetorrikoa"> Joan etorriko hegaldia</label>
+        </div>
+        
+        
+        <div id="joanekoErregistroa" style='display:none'>
           <br><br>
-
           <label class="hegmotatitulua">Joaneko hegaldia</label>
-
           <br><br>
           <label>Jatorrizko Aireportua</label>
           <div>
-            <select name="bidaiamota" class="select-css">
+            <select id="joanekojatorriaireportua" name="joanekojatorriaireportua" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
               // Incluir el archivo de conexión
@@ -112,7 +118,7 @@ require 'conexioa.php';
           <br><br>
           <label>Helmugako Aireportua</label>
           <div>
-            <select name="bidaiamota" class="select-css">
+            <select id="joanekohelmugaaireportua" name="joanekohelmugaaireportua" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
               // Incluir el archivo de conexión
@@ -143,7 +149,7 @@ require 'conexioa.php';
           <br><br>
           <label>Airelinea</label>
           <div>
-            <select name="bidaiamota" class="select-css">
+            <select id="joanekoairelinea" name="joanekoairelinea" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
               // Incluir el archivo de conexión
@@ -169,8 +175,8 @@ require 'conexioa.php';
             </select>
           </div>
           <br><br>
-          <label>Prezioa (€)</label>
-          <input type="number" id="joanekoprezioa">
+          <label id="preziolabel">Prezioa (€)</label>
+          <input type="text" id="joanekoprezioa">
           <br><br>
           <label>Irteera Data</label>
           <input type="date" id="joanekodata">
@@ -179,28 +185,20 @@ require 'conexioa.php';
           <input type="time" id="joanekoordua">
           <br><br>
           <label>Bidaiaren Iraupena (orduetan)</label>
-          <input type="number" id="joanekoiraupena">
-          <br><br>
+          <input type="time" id="joanekoiraupena">
+          
           
 
-          <div id="joanetorrikoErregistroa" style='display:none'>
-            <label class="hegmotatitulua">Joan Etorriko hegaldia</label>
+          <div id="etorrikoErregistroa" style='display:none'>
             <br><br>
-            <label>Itzulera Data</label>
-            <input type="date" id="etorrikodata">
-            <br><br>
-            <label>Itzulera Ordua</label>
-            <input type="time" id="etorrikoordua">
-            <br><br>
-            <label>Bueltako Bidaiaren Iraupena (orduetan)</label>
-            <input type="number" id="etorrikoiraupena">
+            <label class="hegmotatitulua">Etorriko hegaldia</label>
             <br><br>
             <label>Bueltako Hegaldi Kodea</label>
             <input type="text" id="etorrikokodea">
             <br><br>
             <label>Bueltako Airelinea</label>
             <div>
-              <select name="bidaiamota" class="select-css">
+              <select id="etorrikoairelinea" name="etorrikoairelinea" class="select-css">
                 <option value="">--Aukeratu--</option>
                 <?php
                 // Incluir el archivo de conexión
@@ -225,6 +223,16 @@ require 'conexioa.php';
                 ?>
               </select>
             </div>
+            <br><br>
+            <label>Itzulera Data</label>
+            <input type="date" id="etorrikodata">
+            <br><br>
+            <label>Itzulera Ordua</label>
+            <input type="time" id="etorrikoordua">
+            <br><br>
+            <label>Bueltako Bidaiaren Iraupena (orduetan)</label>
+            <input type="time" id="etorrikoiraupena">
+            <br><br>
           </div>
         </div>
 
@@ -249,7 +257,7 @@ require 'conexioa.php';
           <br><br>
           <label>Logela mota</label>
           <div>
-            <select name="bidaiamota" class="select-css">
+            <select id="logelamota" name="logelamota" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
               // Incluir el archivo de conexión
@@ -290,15 +298,24 @@ require 'conexioa.php';
           <textarea name="bestebatzukdeskribapena" id="bestebatzukdeskribapena"></textarea>
           <br><br>
           <label>Prezioa (€)</label>
-          <input type="number" id="beste batzukprezioa">
+          <input type="number" id="bestebatzukprezioa">
         </div>
 
-
-
         <br><br>
-        <input type="submit" id="bidaiagorde" value="GORDE">
+        <input type="submit" id="zerbitzuagorde" value="GORDE" style='display:none'>
       </form>
+
+      <div class="overlay" id="overlay" style='display:none'>
+            <div class="popup" id="popup">
+                <br><br>
+                <label id="itxi"><b>Saioa itxi nahi duzu?</b></label>
+                <br>
+                <input type="submit" id="saioaitxipopup" value="Saioa Itxi">
+                <input type="submit" id="ezitxi" value="Oraindik ez">
+            </div>
+        </div>
     </section>
 </body>
 <script src="../js/zerbitzuakErregistratu.js"></script>
+<script src="../js/saioaitxi.js"></script>
 </html>
