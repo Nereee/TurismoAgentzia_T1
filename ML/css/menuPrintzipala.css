@@ -1,0 +1,64 @@
+input[type="button"]{
+    margin: auto;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: rgb(36, 112, 255);
+    background-color: cornflowerblue;
+    color: yellow;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40vh;
+    width: 45%;
+    box-shadow: 30px 50px 25px rgba(0, 132, 255, 0.3);
+}
+
+@media (max-width: 500px) {
+
+    input[type="button"]{
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        border-color: rgb(36, 112, 255);
+        background-color: cornflowerblue;
+        color: yellow;
+        font-size: 20px;
+        font-weight: bold;
+        height: 20vh;
+        width: 90%;
+        box-shadow: 30px 50px 25px rgba(0, 132, 255, 0.3);
+    }  
+}
+
+@media (max-width: 700px) {
+
+    input[type="button"]{
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        border-color: rgb(36, 112, 255);
+        background-color: cornflowerblue;
+        color: yellow;
+        font-size: 20px;
+        font-weight: bold;
+        height: 20vh;
+        width: 75%;
+        box-shadow: 30px 50px 25px rgba(0, 132, 255, 0.3);
+    }  
+}
+
+@media (max-width: 1000px) {
+
+    input[type="button"]{
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        border-color: rgb(36, 112, 255);
+        background-color: cornflowerblue;
+        color: yellow;
+        font-size: 30px;
+        font-weight: bold;
+        height: 20vh;
+        width: 75%;
+        box-shadow: 30px 50px 25px rgba(0, 132, 255, 0.3);
+    }  
+}
