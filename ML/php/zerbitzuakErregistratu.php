@@ -93,7 +93,6 @@ require 'conexioa.php';
             <select id="joanekojatorriaireportua" name="joanekojatorriaireportua" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
-              // Incluir el archivo de conexión
               require 'conexioa.php';
                   
               // Consulta para obtener todos los usuarios
@@ -122,7 +121,6 @@ require 'conexioa.php';
             <select id="joanekohelmugaaireportua" name="joanekohelmugaaireportua" class="select-css">
               <option value="">--Aukeratu--</option>
               <?php
-              // Incluir el archivo de conexión
               require 'conexioa.php';
                   
               // Consulta para obtener todos los usuarios

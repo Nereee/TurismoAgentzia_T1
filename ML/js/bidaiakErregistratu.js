@@ -6,26 +6,35 @@ let iraupena = document.getElementById('egunak');
 let herrialdea = document.getElementsByName('herrialdea')[0]; // Accede al primer select
 let deskribapena = document.getElementById('deskribapena');
 
+
+
 document.getElementById('bidaiagorde').addEventListener("click", function (event) {
     event.preventDefault();
-
+    
     if (izena.value === "" || mota.value === "" || hasieradata.value === "" || amaieradata.value === "" || herrialdea.value === "" || deskribapena.value === "") {
-        alert("Datu guztiak bete behar dira");
-        return;
-    }
-
-    if(izena.value.length < 3){
-        alert('Izena motzegia da');
+        alert("Datuak bidaltzeko, eremu guztiak bete behar dira, kanpoan geratzen diren zerbitzuak izan ezik, halakorik ez badago.");
         return;
     }
     
+    if(izena.value.length < 3){
+        alert('Izena motzegia da.');
+        return;
+    }
+    
+    let datahautatuta = new Date(hasieradata.value);
+    let uneko_data = new Date();
+    if(datahautatuta < uneko_data){
+        alert('Hasiera data ezin da izan oraingo data baino txikiagoa.');
+        return;
+    }
+
     if(amaieradata.value < hasieradata.value){
-        alert("Datak txarto daude");
-       return;
-    }   
-   
-   if(deskribapena.value.length < 5){
-        alert('Deskribapena motzegia da');
+        alert("Amaiera data ezin da hasiera data baino txikiagoa.");
+        return;
+    }
+    
+    if(deskribapena.value.length < 5){
+        alert('Deskribapena motzegia da.');
         return;
     }
 
@@ -59,6 +68,12 @@ document.getElementById('bidaiagorde').addEventListener("click", function (event
     
     let deskribapen = lerroa.insertCell();
     deskribapen.innerText = deskribapena.value;
+
+    let lerroKant = taula.rows.length;
+    console.log(lerroKant);
+    if(lerroKant > 0){
+        taula.style.display = 'block';
+    }
 });
 
 amaieradata.addEventListener('change', function() {

@@ -1,4 +1,4 @@
-/*input[type="button"]{
+input[type="button"]{
     margin: auto;
     padding: 10px;
     border-radius: 20px;
@@ -11,7 +11,7 @@
     width: 45%;
     box-shadow: 30px 50px 25px rgba(0, 132, 255, 0.3);
 }
-*/
+
 @media (max-width: 500px) {
 
     input[type="button"]{

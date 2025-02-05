@@ -111,7 +111,7 @@ require 'conexioa.php';
         <input type="submit" id="bidaiagorde" value="GORDE">
       </form>
       <br><br>
-      <table>
+      <table style='display:none'>
         <thead>
           <tr>
             <th>BIDAIA</th>
