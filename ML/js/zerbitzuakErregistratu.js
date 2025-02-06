@@ -1,4 +1,19 @@
+/*AUKERATUTAKO BIDAIAREN ID*/
 let bidaia = document.getElementById('bidaia');
+
+/*OSTATUA*/
+let ostatuizena = document.getElementById('ostatuizena');
+let ostatuhiria = document.getElementById('ostatuhiria');
+let ostatuprezioa = document.getElementById('ostatuprezioa');
+let ostatusarreraeguna = document.getElementById('ostatusarreraeguna');
+let ostatuirteeraeguna = document.getElementById('ostatuirteeraeguna');
+let logelamota = document.getElementById('logelamota');
+
+/*BESTE BATZUK*/
+let bestebatzukizena = document.getElementById('bestebatzukizena');
+let bestebatzukdata = document.getElementById('bestebatzukdata');
+let bestebatzukdeskribapena = document.getElementById('bestebatzukdeskribapena');
+let bestebatzukprezioa = document.getElementById('bestebatzukprezioa');
 
 document.querySelectorAll('input[name="zeinzerbitzu"]').forEach(radio => {
     radio.addEventListener('change', function () {
@@ -20,6 +35,47 @@ document.querySelectorAll('input[name="zeinzerbitzu"]').forEach(radio => {
             document.getElementById('joanekoErregistroa').style.display = 'none';
             document.getElementById('bestebatzukErregistroa').style.display = 'none';
             document.getElementById('zerbitzuagorde').style.display = 'block';
+
+            document.getElementById('zerbitzuagorde').addEventListener("click", function (event) {
+                event.preventDefault();
+                
+                if (ostatuizena.value === "" || ostatuhiria.value === "" || ostatuprezioa.value === "" || ostatusarreraeguna.value === "" || ostatuirteeraeguna.value === "" || logelamota.value === "") {
+                    alert("Datuak bidaltzeko, eremu guztiak bete behar dira.");
+                    return;
+                }
+
+                if(bidaia.value === ""){
+                    alert("Hegaldia gehitzeko, hegaldia esleitu nahi diozun bidaia aukeratu behar duzu.");
+                    return;
+                }
+
+                if(ostatuizena.value.length < 3){
+                    alert('Izena motzegia da.');
+                    return;
+                }
+
+                let regex = /^\d+([,.]\d{1,2})?$/;
+                if(!regex.test(ostatuprezioa.value)){
+                    alert("Prezioak bi hamartarreko edo zenbaki oso bateko zenbakia izan behar du.");
+                    return;
+                }
+
+                let sarreraeguna = new Date(ostatusarreraeguna.value);
+                let uneko_data = new Date();
+                if(sarreraeguna < uneko_data){
+                    alert('Sarrera eguna ezin da izan oraingo data baino txikiagoa.');
+                    return;
+                }
+
+                let irteeraeguna = new Date(ostatuirteeraeguna.value);
+                if(irteeraeguna < sarreraeguna){
+                    alert('Irteera eguna ezin da izan sarrera eguna baino txikiagoa.');
+                    return;
+                }
+            
+                document.getElementById('zerbitzuErregistroa').submit(); 
+            });
+
         }
         if (this.id === 'bestebatzuk') {
             document.getElementById('hegaldimota').style.display = 'none';
@@ -27,6 +83,46 @@ document.querySelectorAll('input[name="zeinzerbitzu"]').forEach(radio => {
             document.getElementById('joanekoErregistroa').style.display = 'none';
             document.getElementById('ostatuErregistroa').style.display = 'none';
             document.getElementById('zerbitzuagorde').style.display = 'block';
+
+            document.getElementById('zerbitzuagorde').addEventListener("click", function (event) {
+                event.preventDefault();
+                
+                if (bestebatzukizena.value === "" || bestebatzukdata.value === "" || bestebatzukdeskribapena.value === "" || bestebatzukprezioa.value === "") {
+                    alert("Datuak bidaltzeko, eremu guztiak bete behar dira.");
+                    return;
+                }
+
+                if(bidaia.value === ""){
+                    alert("Hegaldia gehitzeko, hegaldia esleitu nahi diozun bidaia aukeratu behar duzu.");
+                    return;
+                }
+
+                if(bestebatzukizena.value.length < 3){
+                    alert('Izena motzegia da.');
+                    return;
+                }
+
+                let zerbeguna = new Date(bestebatzukdata.value);
+                let uneko_data = new Date();
+                if(zerbeguna < uneko_data){
+                    alert('Zerbitzua egingo den eguna ezin da izan oraingo data baino txikiagoa.');
+                    return;
+                }
+
+                if(bestebatzukdeskribapena.value.length < 5){
+                    alert('Deskribapena motzegia da.');
+                    return;
+                }
+
+                let regex = /^\d+([,.]\d{1,2})?$/;
+                if(!regex.test(bestebatzukprezioa.value)){
+                    alert("Prezioak bi hamartarreko edo zenbaki oso bateko zenbakia izan behar du.");
+                    return;
+                }
+            
+                document.getElementById('zerbitzuErregistroa').submit(); 
+            });
+            
         }
     });
 });
@@ -124,33 +220,10 @@ document.querySelectorAll('input[name="hegaldimota"]').forEach(radio => {
                     return;
                 }
             
-                if(joanekokodea.value.length < 4){
+                if(joanekokodea.value.length < 4 || joanekokodea.value.length > 10){
                     alert("Joaneko hegaldiaren kodea motzegia da.");
                     return;
                 }
-
-                let joanekokodeaValue = document.getElementById('joanekokodea').value;
-                // Realizar la solicitud AJAX al servidor para verificar si el código de vuelo ya está registrado
-                fetch('hegaldi_kodea_egiaztatu.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ joanekokodeaValue: joanekokodeaValue }) // Enviar el código de vuelo como JSON
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.errepikatuta) {
-                        alert('Joaneko hegaldiaren kodea datu basean jada erregistratuta dago.');
-                        return;
-                    }
-                })
-                .catch(error => {
-                    //console.error('Error al verificar el código de vuelo:', error);
-                    alert('Errorea hegaldi-kodea egiaztatzean:', error);
-                });
-
-
 
                 let regex = /^\d+([,.]\d{1,2})?$/;
                 if(!regex.test(joanekoprezioa.value)){
@@ -182,7 +255,6 @@ document.querySelectorAll('input[name="hegaldimota"]').forEach(radio => {
                     alert("Joaneko hegaldiaren kodea eta etorriko hegaldiaren kodea ezin dira berdinak izan.");
                     return;
                 }
-
             
                 document.getElementById('zerbitzuErregistroa').submit(); 
             });

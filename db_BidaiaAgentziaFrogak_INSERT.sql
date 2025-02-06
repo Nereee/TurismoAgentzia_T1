@@ -1,4 +1,4 @@
-use db_BidaiaAgentzia;
+use db_BidaiaAgentziaFrogak;
 
 set sql_safe_updates = 1;
 #delete from iata;
