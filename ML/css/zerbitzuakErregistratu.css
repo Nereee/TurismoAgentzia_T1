@@ -77,7 +77,7 @@
 
     section{
         display: flex;
-        display: inline;
+        flex-direction: column;
     }
 
 

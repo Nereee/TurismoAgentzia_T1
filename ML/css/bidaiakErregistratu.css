@@ -52,19 +52,19 @@
     }
 
     form input[type="submit"]{
-            padding: 10px;
-            background-color: yellow;
-            border-radius: 10px;
-            border-width: 1px;
-            border-color: #3865b9f1;
-            color: #111;
-            font-weight: bolder;
-            width: 90%;
-            margin-right: 50px; 
-            box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        background-color: yellow;
+        border-radius: 10px;
+        border-width: 1px;
+        border-color: #3865b9f1;
+        color: #111;
+        font-weight: bolder;
+        width: 90%;
+        margin-right: 50px; 
+        box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
     }
 
-
+/*
     th{
         padding: 5px;
         border-style: solid;
@@ -85,6 +85,7 @@
         border-width: 1px;
         background-color: rgb(234, 234, 234);
     }
+        */
 
     section{
         display: flex;

@@ -35,6 +35,29 @@ section {
     margin-bottom: 25px;
 }
 
+
+th{
+    padding: 5px;
+    border-style: solid;
+    background-color: lightgray;
+    width: 140px;
+    border-width: 3px;
+}
+
+table{
+    box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
+}
+
+table, td{
+    font-size: small;
+    margin: auto;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgb(234, 234, 234);
+}
+
+
 #saioaitxi {
     padding: 10px;
     background-color: yellow;

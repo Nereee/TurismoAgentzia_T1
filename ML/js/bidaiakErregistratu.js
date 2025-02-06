@@ -70,7 +70,6 @@ document.getElementById('bidaiagorde').addEventListener("click", function (event
     deskribapen.innerText = deskribapena.value;
 
     let lerroKant = taula.rows.length;
-    console.log(lerroKant);
     if(lerroKant > 0){
         taula.style.display = 'block';
     }

@@ -185,8 +185,7 @@ require 'conexioa.php';
           <br><br>
           <label>Bidaiaren Iraupena (orduetan)</label>
           <input type="time" id="joanekoiraupena" name="joanekoiraupena">
-          
-          
+
 
           <div id="etorrikoErregistroa" style='display:none'>
             <br><br>
@@ -303,6 +302,70 @@ require 'conexioa.php';
         <br><br>
         <input type="submit" id="zerbitzuagorde" value="GORDE" style='display:none'>
       </form>
+      <br><br>
+
+      <!--JOANEKO HEGALDIAREN LABURPEN TAULA-->
+      <table id="joanekoTaula" style='display:none'>
+        <thead>
+          <tr>
+            <th>JATORRIZKO AIREPORTUA</th>
+            <th>HELMUGAKO AIREPORTUA</th>
+            <th>HEGALDI KODEA</th>
+            <th>AIRELINEA</th>
+            <th id="prezioataulan">PREZIOA (€)</th>
+            <th>IRTEERA DATA</th>
+            <th>IRTEERA ORDUA</th>
+            <th>BIDAIAREN IRAUPENA</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    <!--ETORRIKO HEGALDIAREN LABURPEN TAULA-->
+    <table id="etorrikoTaula" style='display:none'>
+      <thead>
+        <tr>
+          <th>BUELTAKO HEGALDI KODEA</th>
+          <th>BUELTAKO AIRELINEA</th>
+          <th>ITZULERA DATA</th>
+          <th>ITZULERA ORDUA</th>
+          <th>BUELTAKO BIDAIAREN IRAUPENA</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <!--OSTATUAREN LABURPEN TAULA-->
+    <table id="ostatuarenTaula" style='display:none'>
+      <thead>
+        <tr>
+          <th>HOTELAEN IZENA</th>
+          <th>HIRIA</th>
+          <th>PREZIOA (€)</th>
+          <th>SARRERA EGUNA</th>
+          <th>IRTEERA EGUNA</th>
+          <th>LOGELA MOTA</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <!--BESTE ZERBITZU BATZUEN LABURPEN TAULA-->
+    <table id="besteBatzukTaula" style='display:none'>
+      <thead>
+        <tr>
+          <th>IZENA</th>
+          <th>DATA</th>
+          <th>DESKRIBAPENA</th>
+          <th>PREZIOA (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
 
       <div class="overlay" id="overlay" style='display:none'>
             <div class="popup" id="popup">

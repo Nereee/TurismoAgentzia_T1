@@ -3,9 +3,12 @@ session_start();
 require 'conexioa.php';
 
 
-$zeinzerbitzu = $_POST['zeinzerbitzu'];
-$bidaia = $_POST['bidaia'];
-$hegaldimota = $_POST['hegaldimota'];
+//$zeinzerbitzu = $_POST['zeinzerbitzu'];
+$zeinzerbitzu = isset($_POST['zeinzerbitzu']) ? $_POST['zeinzerbitzu'] : '';
+//$bidaia = $_POST['bidaia'];
+$bidaia = isset($_POST['bidaia']) ? $_POST['bidaia'] : '';
+//$hegaldimota = $_POST['hegaldimota'];
+$hegaldimota = isset($_POST['hegaldimota']) ? $_POST['hegaldimota'] : '';
 
 
 $JjatorrizkoAireportua = $_POST['joanekojatorriaireportua'];
