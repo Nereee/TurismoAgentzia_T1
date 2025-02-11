@@ -3,11 +3,8 @@ session_start();
 require 'conexioa.php';
 
 
-//$zeinzerbitzu = $_POST['zeinzerbitzu'];
 $zeinzerbitzu = isset($_POST['zeinzerbitzu']) ? $_POST['zeinzerbitzu'] : '';
-//$bidaia = $_POST['bidaia'];
 $bidaia = isset($_POST['bidaia']) ? $_POST['bidaia'] : '';
-//$hegaldimota = $_POST['hegaldimota'];
 $hegaldimota = isset($_POST['hegaldimota']) ? $_POST['hegaldimota'] : '';
 
 
@@ -19,6 +16,16 @@ $Jprezioa = $_POST['joanekoprezioa'];
 $Jdata = $_POST['joanekodata'];
 $Jordua = $_POST['joanekoordua'];
 $Jiraupena = $_POST['joanekoiraupena'];
+
+$_SESSION['joanekojatorriaireportua'] = $JjatorrizkoAireportua;
+$_SESSION['joanekohelmugaaireportua'] = $JhelmugakoAireportua;
+$_SESSION['joanekokodea'] = $Jkodea;
+$_SESSION['joanekoairelinea'] = $Jairelinea;
+$_SESSION['joanekoprezioa'] = $Jprezioa;
+$_SESSION['joanekodata'] = $Jdata;
+$_SESSION['joanekoordua'] = $Jordua;
+$_SESSION['joanekoiraupena'] = $Jiraupena;
+
 
 $Jprezioa = str_replace(',', '.', $Jprezioa);
 
@@ -34,9 +41,11 @@ if ($hegaldimota == 'joanekoa') {
              VALUES('$hegaldimota', '$bidaia')";
     $resultado = mysqli_query($conexion, $consulta); 
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['ekitaldiakDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['ekitaldiakDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
 
     $getEkitaldia = "SELECT id_ekitaldia, izena, id_bidaia FROM ekitaldiak";
@@ -55,9 +64,12 @@ if ($hegaldimota == 'joanekoa') {
     $resultado = mysqli_query($conexion, $consulta);
     
     if ($resultado) {
-        echo "Datos de la tabla joaneko_hegaldia agregados correctamente.";
+        $_SESSION['joanekoDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
+        exit();
     } else {
-        echo "Error al ingresar los datos en joaneko_hegaldia: " . mysqli_error($conexion);
+        $_SESSION['joanekoDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
 
     mysqli_close($conexion);
@@ -72,6 +84,12 @@ if ($hegaldimota == 'joanekoa') {
     $JEiraupena = $_POST['etorrikoiraupena'];
     $JEairelinea = $_POST['etorrikoairelinea'];
 
+    $_SESSION['etorrikokodea'] = $JEkodea;
+    $_SESSION['etorrikodata'] = $JEdata;
+    $_SESSION['etorrikoordua'] = $JEordua;
+    $_SESSION['etorrikoiraupena'] = $JEiraupena;
+    $_SESSION['etorrikoairelinea'] = $JEairelinea;
+
 
     $conexion = new mysqli("localhost:3307", "root", "", "db_bidaiaagentzia");
     if (!$conexion) {
@@ -82,9 +100,11 @@ if ($hegaldimota == 'joanekoa') {
                 VALUES('$hegaldimota', '$bidaia')";
     $resultado = mysqli_query($conexion, $consulta); 
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['ekitaldiakDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['ekitaldiakDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
 
     $getEkitaldia = "SELECT id_ekitaldia, izena, id_bidaia FROM ekitaldiak";
@@ -104,7 +124,8 @@ if ($hegaldimota == 'joanekoa') {
     
     
     if ($resultado) {
-        echo "Datos de la tabla joaneko_hegaldia agregados correctamente.";
+        $_SESSION['joanekoDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
     
         $getHegaldia = "SELECT id_hegaldia FROM joaneko_hegaldia WHERE id_hegaldia = '$id_ekitaldia'";
         $result = $conexion->query($getHegaldia);               
@@ -122,12 +143,15 @@ if ($hegaldimota == 'joanekoa') {
         $resultado_etorriko = mysqli_query($conexion, $consulta_etorriko);
     
         if ($resultado_etorriko) {
-            echo "Datos de la tabla joan_etorriko_hegaldia agregados correctamente.";
+            $_SESSION['etorrikoDatuakBidalita'] = true;
+            header("Location: zerbitzuakErregistratu.php");
         } else {
-            echo "Error al ingresar los datos en joan_etorriko_hegaldia: " . mysqli_error($conexion);
+            $_SESSION['etorrikoDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
         }
     } else {
-        echo "Error al ingresar los datos en joaneko_hegaldia: " . mysqli_error($conexion);
+        $_SESSION['joanekoDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
     
     mysqli_close($conexion); 
@@ -143,6 +167,13 @@ if ($hegaldimota == 'joanekoa') {
     $irteeraEguna = $_POST['ostatuirteeraeguna'];
     $logela = $_POST['logelamota'];
 
+    $_SESSION['ostatuizena'] = $Ostizena;
+    $_SESSION['ostatuhiria'] = $hiria;
+    $_SESSION['ostatuprezioa'] = $prezioa;
+    $_SESSION['ostatusarreraeguna'] = $sarreraEguna;
+    $_SESSION['ostatuirteeraeguna'] = $irteeraEguna;
+    $_SESSION['logelamota'] = $logela;
+
     $conexion = new mysqli("localhost:3307", "root", "", "db_bidaiaagentzia");
 
     if (!$conexion) {
@@ -153,9 +184,11 @@ if ($hegaldimota == 'joanekoa') {
                 VALUES('$zeinzerbitzu', '$bidaia')";
     $resultado = mysqli_query($conexion, $consulta); 
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['ekitaldiakDatuakBidalita'] = true;
+            header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['ekitaldiakDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
 
     $getEkitaldia = "SELECT id_ekitaldia, izena, id_bidaia FROM ekitaldiak";
@@ -173,9 +206,11 @@ if ($hegaldimota == 'joanekoa') {
     $resultado = mysqli_query($conexion, $consulta);
     
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['ostatuaDatuakBidalita'] = true;
+            header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['ostatuaDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
     
     mysqli_close($conexion);
@@ -189,6 +224,11 @@ if ($hegaldimota == 'joanekoa') {
     $BBdeskribapena = $_POST['bestebatzukdeskribapena'];
     $BBprezioa = $_POST['bestebatzukprezioa'];
 
+    $_SESSION['bestebatzukizena'] = $BBizena;
+    $_SESSION['bestebatzukdata'] = $BBdata;
+    $_SESSION['bestebatzukdeskribapena'] = $BBdeskribapena;
+    $_SESSION['bestebatzukprezioa'] = $BBprezioa;
+
     $conexion = new mysqli("localhost:3307", "root", "", "db_bidaiaagentzia");
 
     if (!$conexion) {
@@ -199,9 +239,11 @@ if ($hegaldimota == 'joanekoa') {
                 VALUES('$zeinzerbitzu', '$bidaia')";
     $resultado = mysqli_query($conexion, $consulta); 
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['ekitaldiakDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['ekitaldiakDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
 
     $getEkitaldia = "SELECT id_ekitaldia, izena, id_bidaia FROM ekitaldiak";
@@ -219,9 +261,11 @@ if ($hegaldimota == 'joanekoa') {
     $resultado = mysqli_query($conexion, $consulta);
     
     if($resultado){
-        echo "Datos agregados correctamente";
+        $_SESSION['jarduerakDatuakBidalita'] = true;
+        header("Location: zerbitzuakErregistratu.php");
     }else{
-        echo "Error al ingresar los datos" . mysqli_error($conexion);
+        $_SESSION['jarduerakDatuakBidalita'] = false;
+        header("Location: zerbitzuakErregistratu.php");
     }
     
     mysqli_close($conexion);

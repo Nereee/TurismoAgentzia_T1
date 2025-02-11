@@ -4,16 +4,12 @@ require 'conexioa.php';
 
 header("Content-Type: text/css");
 
-// Función para convertir color hexadecimal a RGB
 function hexToRgb($hex) {
-    // Eliminar el carácter '#' si está presente
     $hex = ltrim($hex, '#');
     
-    // Si el color es de 3 caracteres, duplicamos cada uno (por ejemplo, #abc -> #aabbcc)
     if (strlen($hex) == 3) {
         $hex = $hex[0].$hex[0].$hex[1].$hex[1].$hex[2].$hex[2];
     }
-    // Obtener los valores RGB
     $r = hexdec(substr($hex, 0, 2));
     $g = hexdec(substr($hex, 2, 2));
     $b = hexdec(substr($hex, 4, 2));
@@ -31,7 +27,7 @@ if ($result->num_rows > 0) {
     $kolorea = '#6495ED';
 }
 
-list($r, $g, $b) = hexToRgb($kolorea); // Convertir el color a RGB
+list($r, $g, $b) = hexToRgb($kolorea);
 ?>
 
 header {
