@@ -65,7 +65,7 @@ HERRIALDEAK_KODEA varchar (3) #(FK)
 );
 
 ALTER TABLE bidaiak ADD FOREIGN KEY (bidaia_mota_kodea) REFERENCES bidaia_motak(KODEA);
-ALTER TABLE bidaiak ADD FOREIGN KEY (agentzia_kodea) REFERENCES agentzia(ID_AGENTZIA);
+ALTER TABLE bidaiak ADD FOREIGN KEY (agentzia_kodea) REFERENCES agentzia(ID_AGENTZIA) on delete cascade;
 ALTER TABLE bidaiak ADD FOREIGN KEY (herrialdeak_kodea) REFERENCES herrialdeak(KOD_HERRIALDEAK);
 
 create table if not exists EKITALDIAK (
@@ -74,10 +74,10 @@ IZENA varchar (25),
 ID_BIDAIA int #(FK)
 );
 
-ALTER TABLE ekitaldiak ADD FOREIGN KEY (id_bidaia) REFERENCES bidaiak(ID_BIDAIA) on delete cascade on update cascade;
+ALTER TABLE ekitaldiak ADD FOREIGN KEY (id_bidaia) REFERENCES bidaiak(ID_BIDAIA) on delete cascade;
 
 create table if not exists OSTATUA (
-ID_OSTATUA int auto_increment primary key,
+ID_OSTATUA int primary key,
 HOTELAREN_IZENA varchar(25),
 HIRIA varchar(35),
 PREZIOA double,
@@ -86,21 +86,21 @@ IRTEERA_EGUNA date,
 LOGELA_MOTA_KODEA varchar(3) #(FK)
 );
 
-ALTER TABLE ostatua ADD FOREIGN KEY (id_ostatua) REFERENCES ekitaldiak(ID_EKITALDIA);
+ALTER TABLE ostatua ADD FOREIGN KEY (id_ostatua) REFERENCES ekitaldiak(ID_EKITALDIA) on delete cascade;
 ALTER TABLE ostatua ADD FOREIGN KEY (logela_mota_kodea) REFERENCES logela_motak(KODEA);
 
 create table if not exists JARDUERAK (
-ID_JARDUERA int auto_increment primary key,
+ID_JARDUERA int primary key,
 IZENA varchar(30),
 DESKRIBAPENA mediumtext,
 DATA date,
 PREZIOA double
 );
 
-ALTER TABLE jarduerak ADD FOREIGN KEY (ID_JARDUERA) REFERENCES ekitaldiak(ID_EKITALDIA);
+ALTER TABLE jarduerak ADD FOREIGN KEY (ID_JARDUERA) REFERENCES ekitaldiak(ID_EKITALDIA) on delete cascade;
 
 create table if not exists JOANEKO_HEGALDIA (
-ID_HEGALDIA int auto_increment primary key,
+ID_HEGALDIA int primary key,
 KODEA varchar(10),
 IRTEERA_DATA date,
 IRTEERA_ORDUA time,
@@ -117,11 +117,11 @@ ALTER TABLE joaneko_hegaldia ADD FOREIGN KEY (helmugako_aireportua) REFERENCES i
 ALTER TABLE joaneko_hegaldia ADD FOREIGN KEY (airelinea_kodea) REFERENCES airelineak(KODEA);
 
 create table if not exists JOAN_ETORRIKO_HEGALDIA (
-ID_HEGALDIA int auto_increment primary key,
+ID_HEGALDIA int primary key,
 KODEA varchar(10),
 ITZULERA_DATA date,
-ITZULERA_ORDUA date,
-BUELTAKO_IRAUPENA tinyint,
+ITZULERA_ORDUA time,
+BUELTAKO_IRAUPENA time,
 BUELTAKO_AIRELINEA_KODEA varchar(5) #(FK)
 );
 

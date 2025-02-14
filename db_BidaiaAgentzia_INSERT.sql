@@ -7,17 +7,19 @@ set sql_safe_updates = 1;
 #delete from herrialdeak;
 #delete from airelineak;
 #delete from agentzia_motak;
-select * from iata;
-select * from lang_kopurua;
-select * from bidaia_motak;
-select * from herrialdeak;
-select * from airelineak;
-select * from agentzia_motak;
-select * from logela_motak;
-select * from agentzia;
+#select * from iata;
+#select * from lang_kopurua;
+#select * from bidaia_motak;
+#select * from herrialdeak;
+#select * from airelineak;
+#select * from agentzia_motak;
+#select * from logela_motak;
+#select * from agentzia;
 
 #ALTER TABLE BIDAIA_MOTAK MODIFY COLUMN DESKRIBAPENA VARCHAR(55);
-INSERT INTO agentzia(IZENA, LOGOA, ERABILTZAILEA, PASAHITZA) VALUES ('Agentzia_T1','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6B9Ot3bkvejstpI_j91F-L92wIzh_VG59SA&s','admin','admin');
+INSERT INTO agentzia(IZENA, LOGOA, MARKAREN_KOLOREA, ERABILTZAILEA, PASAHITZA) VALUES ('Agentzia_T1','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6B9Ot3bkvejstpI_j91F-L92wIzh_VG59SA&s', '#6495ED','admin','admin');
+INSERT INTO agentzia(IZENA, LOGOA, MARKAREN_KOLOREA, ERABILTZAILEA, PASAHITZA) VALUES ('Agentzia_T2','https://images.theconversation.com/files/502570/original/file-20221222-22-mdjwl6.png?ixlib=rb-4.1.0&q=45&auto=format&w=1000&fit=clip', '#FFB6C1','aa','aa');
+INSERT INTO agentzia(IZENA, LOGOA, MARKAREN_KOLOREA, ERABILTZAILEA, PASAHITZA) VALUES ('Agentzia_T3','https://www.dzoom.org.es/wp-content/uploads/2019/07/fotografia-flores-primavera-consejos-810x540.jpg', '#8FBC8F','bb','bb');
 
 
 insert into IATA values

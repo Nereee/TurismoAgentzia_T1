@@ -11,11 +11,11 @@ require 'conexioa.php';
     <title>Menu Printzipala</title>
     <link rel="stylesheet" href="../css/maketazioa.css">
     <link rel="stylesheet" href="../css/menuPrintzipala.css">
+    <link rel="stylesheet" href="../php/kolorea.php">
     <link rel="stylesheet" href="../css/saioaItxi.css">
 </head>
 <body>
     <header>
-        <!--<img src="../img/logoadib.jpg" alt="logoadib" id="logoadib">-->
         <img id="sessionLogoa" src="<?php if(isset($_SESSION['agentziaLogoa'])){
             echo htmlspecialchars($_SESSION['agentziaLogoa']); }?>" alt="Logoa">
         <div id="sessionIzena"><?php if(isset($_SESSION['agentziaIzena'])){
@@ -36,6 +36,6 @@ require 'conexioa.php';
             </div>
         </div>
     </section>
+    <script src="../js/saioaitxi.js"></script>
 </body>
-<script src="../js/saioaitxi.js"></script>
 </html>

@@ -24,6 +24,8 @@
         border-width: 1px;
     }
 
+    
+
     .select-css {
         font-size: 14px;
         font-weight: 400;
@@ -35,19 +37,6 @@
         border-radius: 5px;
        }
 
-
-    form input[type="submit"]{
-            padding: 10px;
-            background-color: yellow;
-            border-radius: 10px;
-            border-width: 1px;
-            border-color: #3865b9f1;
-            color: #111;
-            font-weight: bolder;
-            width: 90%;
-            margin-right: 50px;
-            box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
-    }
 
     form textarea{
         margin-top: 10px;
@@ -62,22 +51,22 @@
         height: 120px; 
     }
 
-    input[type="radio"]{
-        width: 5%;
-    }
-
-    .zerbitzutitulua{
-        color: cornflowerblue;
-        font-size: 23px;
-    }
-
-    .hegmotatitulua{
-        color: cornflowerblue;
+    form input[type="submit"]{
+        padding: 10px;
+        background-color: yellow;
+        border-radius: 10px;
+        border-width: 1px;
+        border-color: #3865b9f1;
+        color: #111;
+        font-weight: bolder;
+        width: 90%;
+        margin-right: 50px; 
+        box-shadow: 15px 10px 12px rgba(0, 0, 0, 0.3);
     }
 
     section{
         display: flex;
-        display: inline;
+        flex-direction: column;
     }
 
 
